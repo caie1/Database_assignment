@@ -14,7 +14,10 @@ public class LRUCache {
 
     public Integer get(Character key) {
         DoubleLinkedNode<Character, Integer> node = cache.get(key);
-        if (node == null) return -1;
+        if (node == null){
+            System.out.println("No such key: " + key);
+            return null;
+        }
 
         lst.removeNode(node);
         lst.addNode(node);
@@ -50,8 +53,11 @@ public class LRUCache {
         System.out.println("The size is:" + lrucache.size);
         lrucache.set('b',2);
         lrucache.set('a',3);
+        lrucache.set('c',5);
         int ans = lrucache.get('a');
         System.out.println("the value of key a is:"+ ans);
+        System.out.println("the value of key b is:"+ lrucache.get('b'));
+        System.out.println("the value of key c is:"+ lrucache.get('c'));
         System.out.println("The size is:" + lrucache.size);
 
     }
